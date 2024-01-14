@@ -234,6 +234,14 @@ contract TokenSale is Ownable, SupraToken, TokenSaleEvents {
         emit RemainingTokensDistributed(i_distributionAddress, remainingTokens);
     }
 
+    /**
+     * @dev Function to claim refund if following conditions are met:
+     * 1. No sale phase is currently active i.e. between pre sale end time and public sale
+     *    start time for the pre sale phase refund and post public sale endtime for the
+     *    public sale refund.
+     * 2. Minimum cap for the given sale phase is not reached.
+     * 3. The caller of the function has actually contributed to the sale phase.
+     */
     function claimRefund() public notEmergencyStopped {
         if (isPresaleActive() || isPublicSaleActive()) {
             revert TokenSale__SaleStillActive();

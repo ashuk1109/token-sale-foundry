@@ -22,22 +22,15 @@ address. This function can only be called by the owner of the contract.
 1. If the minimum cap for either the presale or public sale is not reached, contributors
 should be able to claim a refund.
 
+### About the Contract
+The contract uses a SupraToken which is an ERC20 Token for the Pre sale and Public sale. 
+The owner has been given the option to stop the sale in case of any unforeseen emergency.
+The tests are written so as to cover all the functionalities and edge cases as well as ensure safety of the contract.
+Initially all tokens are minted to the owner address.
+A sale phase minCap has been introduced to streamline the refund process.
+Users can claim refund for the specific phase only when the particular phase has passed and no other phase is active i.e. between preSale and publicSale or after publicSale and the minCap for sale is not reached.
 
 This specific project uses the *Foundry framework*. 
-
-
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
-
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
 
 ## Usage
 
@@ -90,3 +83,7 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+
+## Foundry Documentation
+
+https://book.getfoundry.sh/
